@@ -10,7 +10,6 @@ class ChatSerializer(serializers.ModelSerializer):
     is_mute = serializers.BooleanField()
     is_in_archive = serializers.BooleanField()
     is_last = serializers.BooleanField()
-    unread_messages = serializers.IntegerField()
     class Meta:
         model = Chat
         fields = (
@@ -20,7 +19,6 @@ class ChatSerializer(serializers.ModelSerializer):
             'is_mute',
             'is_in_archive',
             'is_last',
-            'unread_messages'
         )
 
 

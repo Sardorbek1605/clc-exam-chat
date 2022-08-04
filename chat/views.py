@@ -29,7 +29,6 @@ class ChatListViewSet(generics.ListAPIView):
             is_mute=ChatSettings.objects.filter(chat_id=models.OuterRef('id'), user=self.request.user).values('is_mute'),
             is_in_archive=ChatSettings.objects.filter(chat_id=models.OuterRef('id'), user=self.request.user).values('is_in_archive'),
             is_last=ChatSettings.objects.filter(chat_id=models.OuterRef('id'), user=self.request.user).values('is_last'),
-            unread_messages=Count(Message.objects.filter(chat_id=models.OuterRef('id'), is_view=False))
         )
         return queryset
 
